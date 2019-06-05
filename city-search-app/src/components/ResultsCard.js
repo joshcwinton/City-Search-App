@@ -20,7 +20,7 @@ class ResultsCard extends Component {
 }
 
 ResultsCard.propTypes = {
-  zip: PropTypes.number
+  zip: PropTypes.string
 }
 
 export default ResultsCard;
