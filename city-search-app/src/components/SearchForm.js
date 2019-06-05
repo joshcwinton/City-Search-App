@@ -15,15 +15,13 @@ class SearchForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit = async function(e) {
+  handleSubmit = function(e) {
     if(e.key === 'Enter'){
       axios.get('http://ctp-zip-api.herokuapp.com/city/' + e.target.value.toUpperCase())
       .then(res => {
-        console.log(res.data);
         this.setState((state, props) => state.myData = res.data)
       })
     }
-    console.log("state", this.state.myData);
     resultsVisible = true;
   }
 
@@ -32,7 +30,7 @@ class SearchForm extends Component {
       return (
         <div id='search-form'>
           City:
-          <input type="text" name="city" placeholder="Try Chicago"  onKeyDown= {this.handleSubmit} value={this.state.city}/>
+          <input type="text" name="city" placeholder="Try Chicago"  onKeyDown= {this.handleSubmit} value={this.state.city} autoComplete="off"/>
           <Results arrayOfResults={this.state.myData} />
         </div>
       );
@@ -40,7 +38,7 @@ class SearchForm extends Component {
       return (
         <div id='search-form'>
           City:
-          <input type="text" name="city" placeholder="Try Chicago"  onKeyDown= {this.handleSubmit} value={this.state.city}/>
+          <input type="text" name="city" placeholder="Try Chicago"  onKeyDown= {this.handleSubmit} value={this.state.city} autoComplete="off"/>
         </div>
       );
     }
