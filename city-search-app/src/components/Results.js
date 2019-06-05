@@ -11,6 +11,12 @@ class Results extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.arrayOfResults !== this.props.arrayOfResults) {
+      this.setState({arrayOfResults: this.props.arrayOfResults})
+    }
+  }
+
   render(){
     return (
       <div className="results-container">
@@ -19,6 +25,7 @@ class Results extends Component {
     )
   }
 }
+
 
 Results.propTypes = {
   arrayOfResults: PropTypes.arrayOf(PropTypes.string)
