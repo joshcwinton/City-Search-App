@@ -14,17 +14,14 @@ class Results extends Component {
   render(){
     return (
       <div className="results-container">
-        <ResultsCard zip={11111}/>
-        <ResultsCard zip={11112}/>
-        <ResultsCard zip={11113}/>
-        <ResultsCard zip={11113}/>
+        {this.state.arrayOfResults.map(myZip => (<ResultsCard zip={myZip} key={myZip}/>))}
       </div>
     )
   }
 }
 
 Results.propTypes = {
-  arrayOfResults: PropTypes.arrayOf(PropTypes.number)
+  arrayOfResults: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default Results;
