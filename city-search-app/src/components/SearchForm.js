@@ -21,12 +21,16 @@ class SearchForm extends Component {
       .then(res => {
         this.setState((state, props) => state.myData = res.data)
       })
+      .catch(res => {
+        this.setState((state, props) => state.myData = [])
+        console.log("Not a city");
+      })
     }
     resultsVisible = true;
   }
 
   render(){
-    if(resultsVisible === true){
+    if(resultsVisible){
       return (
         <div id='search-form'>
           City:

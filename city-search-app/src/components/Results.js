@@ -26,6 +26,7 @@ class Results extends Component {
   }
 }
 
+
 Results.propTypes = {
   arrayOfResults: PropTypes.arrayOf(PropTypes.string)
 }
